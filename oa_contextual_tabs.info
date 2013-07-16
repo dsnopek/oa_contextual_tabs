@@ -1,0 +1,6 @@
+name = Open Atrium Contextual Tabs
+description = Provides contextual tabs functionality for Open Atrium
+core = 7.x
+package = Open Atrium
+php = 5.2.4
+version = 7.x-2.0
