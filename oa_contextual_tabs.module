@@ -4,7 +4,9 @@
  * Code for the Open Atrium contextual tabs module.
  */
 
-
+/**
+ * Impliments hook_menu().
+ */
 function oa_contextual_tabs_menu() {
   $items['node/%node/archive-content'] = array(
     'type' => MENU_LOCAL_TASK,
@@ -30,8 +32,8 @@ function oa_contextual_tabs_confirmation($node) {
 }
 
 /**
- * Perform access control on the flag. Just piggyback off what flag_create_link
- * already does.
+ * Perform access control on the flag. Just piggyback off what
+ * trash_flag_flag_access already does.
  */
 function oa_contextual_tabs_access($node) {
   global $user;
