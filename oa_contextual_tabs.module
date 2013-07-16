@@ -4,6 +4,8 @@
  * Code for the Open Atrium contextual tabs module.
  */
 
+include_once 'oa_contextual_tabs.features.inc';
+
 /**
  * Impliments hook_menu().
  */
