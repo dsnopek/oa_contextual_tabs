@@ -3,6 +3,7 @@ core = 7.x
 package = Open Atrium
 version = 7.x-2.0
 project = oa_contextual_tabs
+dependencies[] = contextual_tabs
 dependencies[] = ctools
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
