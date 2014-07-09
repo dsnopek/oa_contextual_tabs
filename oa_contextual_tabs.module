@@ -12,7 +12,8 @@ include_once 'oa_contextual_tabs.features.inc';
 function oa_contextual_tabs_menu() {
   $items['node/%node/archive-content'] = array(
     'type' => MENU_LOCAL_TASK,
-    'title' => 'Archive This Content',
+    'title callback' => 'oa_contextual_tabs_archive_title',
+    'title arguments' => array(1),
     'page callback' => 'oa_contextual_tabs_confirmation',
     'page arguments' => array(1),
     'access callback' => 'oa_contextual_tabs_access',
@@ -38,6 +39,14 @@ function oa_contextual_tabs_contextual_tabs_alter(&$data) {
       );
     }
   }
+}
+
+/**
+ * Title callback for tab to archive/unarchive current node.
+ */
+function oa_contextual_tabs_archive_title($node) {
+  $flag = flag_load('trash');
+  return $flag->is_flagged($node->nid) ? $flag->get_label('unflag_short') : $flag->get_label('flag_short');
 }
 
 /**
