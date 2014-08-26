@@ -33,7 +33,7 @@ function oa_contextual_tabs_contextual_tabs_alter(&$data) {
     $node = menu_get_object();
     if (isset($node->type)) {
       $vars = oa_core_visibility_data($node);
-      $vars['oa_toolbar_btn_class'] = 'btn-small';
+      $vars['oa_toolbar_btn_class'] = 'btn-small btn-sm btn-default';
       $data['buttons'][] = array(
         'render' => theme('oa_widgets_visibility_toolbar', $vars),
       );
