@@ -73,20 +73,22 @@ function oa_contextual_tabs_access($node) {
 
 /**
  * Add plugin-specific configuration to main Open Atrium settings form
- * @param $form
  * @param $form_state
- * @param $form_id
+ * @param return array - array of subforms render array
  */
-function oa_contextual_tabs_form_oa_core_configure_form_alter(&$form, &$form_state, $form_id) {
-  $form['oa_contextual_tabs'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Contextual Tabs'),
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-  );
-  $form['oa_contextual_tabs']['oa_show_visibility'] = array(
+function oa_contextual_tabs_oa_settings_form(&$form_state) {
+  $forms = array();
+
+  $form = array();
+  $form['oa_show_visibility'] = array(
     '#type' => 'checkbox',
     '#title' => 'Show visibility button',
     '#default_value' => variable_get('oa_show_visibility', TRUE),
   );
+
+  $forms[] = array(
+    'caption' => t('Contextual Tabs'),
+    'form' => $form,
+  );
+  return $forms;
 }
